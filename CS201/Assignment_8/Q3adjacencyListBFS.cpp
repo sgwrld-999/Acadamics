@@ -26,7 +26,7 @@ public:
         }
     }
     unordered_map<int,bool> visit;//We can use array/vector as well but it'll not bound us to the interger only.
-    vector<int> visitedNodes ; // It'll store the explored notes.
+    vector<int> visitedNodes ; // It'll store the explored notes.lłl
     void BFS(int node){
         queue<int> que ;// To insert the value of the visited node and explore thier neighbours.
         que.push(node);
@@ -65,7 +65,7 @@ int main(int argc, char const* argv[]) {
         cin >> u >> v;
         obj.addEdge(u, v, direction);
     }
-    
+
     // Printing the Graph:
     obj.printAdjacencyList();
 
