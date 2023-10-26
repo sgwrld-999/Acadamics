@@ -33,6 +33,20 @@ class Solution {
         }
         return ans;
     }
+
+    bool DFS(int node,int parent,vector<bool>& visited,map<int,list<int>>& adjList){
+        visited[node] = true;
+        for(auto i : adjList[node]){
+            if(!visited[i]){
+                if(DFS(i,node,visited,adjList))
+                    return true;
+            }
+            else if(i != parent)
+                return true;
+        }
+        return false;
+    }
+    
     vector<int> checkCycles(vector<vector<int>>& edges){
         int rowofEdges  = edges.size();
         int colOfEdges = 2 ;
@@ -49,6 +63,24 @@ class Solution {
             
         return {};
     }
+    bool checkCyclesDFS(vector<vector<int>>& edges){
+        int rowofEdges  = edges.size();
+        int colOfEdges = 2 ;
+        map<int,list<int>> adjList;
+        for(int i = 0 ; i < rowofEdges ; i++){
+            adjList[edges[i][0]].push_back(edges[i][1]);
+            adjList[edges[i][1]].push_back(edges[i][0]);
+        }
+        vector<bool> visited(rowofEdges+1,false);
+        bool ans = false;
+        for(int i = 0 ; i < rowofEdges ; i++){
+            if(!visited[i]){
+                if(DFS(i,-1,visited,adjList))
+                    return true;
+            }
+        }   
+        return false;
+    }
 };
 
 int main(){
@@ -61,7 +93,8 @@ int main(){
         edges.push_back({u,v});
     }
     Solution s;
-    vector<int> ans = s.checkCycles(edges);
-    cout<<ans[0]<<" "<<ans[1]<<endl;
+    // vector<int> ans = s.checkCycles(edges);
+    // cout<<ans[0]<<" "<<ans[1]<<endl;
+    cout<<s.checkCyclesDFS(edges)<<endl;ß
     return 0;
 }
