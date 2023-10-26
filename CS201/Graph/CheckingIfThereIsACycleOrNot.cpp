@@ -95,6 +95,6 @@ int main(){
     Solution s;
     // vector<int> ans = s.checkCycles(edges);
     // cout<<ans[0]<<" "<<ans[1]<<endl;
-    cout<<s.checkCyclesDFS(edges)<<endl;ß
+    cout<<s.checkCyclesDFS(edges)<<endl;
     return 0;
 }
