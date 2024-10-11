@@ -5,6 +5,7 @@
         "set": "cpp",
         "queue": "cpp",
         "iostream": "cpp",
-        "stack": "cpp"
+        "stack": "cpp",
+        "__locale": "cpp"
     }
 }

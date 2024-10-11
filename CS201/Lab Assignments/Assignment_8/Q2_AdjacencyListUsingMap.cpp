@@ -8,6 +8,9 @@ public:
     Direction 1 ----> Directed graph
     Direction 0 ----> Undirected graph
     */
+   // Adjacency List is a way to represent a graph using a map of list of list 
+   // where the key represents the node and the list represents the adjacent nodes of the ket node.
+   //The list can be represent using the any list format Data structre like vector, list, array etc in any language.
     unordered_map<int, list<int>> adjacencyList;
 
     void addEdge(int u, int v, int direction) {
